@@ -1,7 +1,6 @@
 /* Codes for linking to Laravel Backend API for database information */
 
 var id_token = localStorage.getItem('id_token');
-var userProfile;
 
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
