@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="img/logo.png" type="image/gif" sizes="16x16">
 
-    <title>PhotoBooks</title>
+    <title>PhotoJournal</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <!-- Link to Bootstrap core CSS -->
@@ -27,13 +28,13 @@
             <span class="icon-bar"></span>                        
           </button>
           <a class="navbar-brand" href="#">
-            <img style="max-width:40px; margin-top: -10px;" class="avatar" />
+            <img style="max-width:40px; margin-top: -10px;" src={{user.image}} />
           </a>
 
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
               <ul class="nav navbar-nav" >
-                  <li><a ng-hide="user" onclick="lock.show();"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>
+                  <li><a ng-hide="user" onclick="login();"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>
                   <li><a href="/about">About <span class="sr-only">(current)</span></a></li>
               </ul>
               <ul class="nav navbar-nav" ng-if="user">
@@ -80,7 +81,7 @@
         <h2>Public PhotoBook list</h2>
         <div class="row">
               <div class="col-md-3 col-lg-2 col-sm-4" ng-repeat="book in books">
-                  <img src={{book.cover}} />
+                  <img src={{book.cover}} class="img-responsive" />
                   <h4>{{book.title}}<span>by {{book.author.name}}</span></h4>
                   <p>{{book.synopsis||'This is the synopsis of the book...'}}</p>
                   <p><a class="btn btn-default" href="/books/{{book.id}}" role="button">View details &raquo;</a></p>
